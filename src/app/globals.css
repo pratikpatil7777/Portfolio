@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -14,16 +14,64 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+} */
+html {
+  scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle of the scrollbar */
+::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 10px;
+}
+
+/* Optional: scrollbar track */
+::-webkit-scrollbar-track {
+  background: white;
+}
 body {
+  scroll-margin-top: 80px;
   color: rgb(var(--foreground-rgb));
+  /* background: linear-gradient(180deg, #6a11cb 0%, #2575fc 100%);
+  background-attachment: fixed; */
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.light {
+  background: linear-gradient(180deg, #b8e9f8 0%, #82d4f2 100%);
+  background-attachment: fixed;
+  --text-color: rgb(0, 0, 0);
+  --nav-text-color: #0070f3;
+  --card-bg: rgba(255, 255, 255, 0.8);
+}
+
+.dark {
+  background: linear-gradient(180deg, #2d91c2 0%, #1e5a7a 100%);
+  background-attachment: fixed;
+  --text-color: #ffffff;
+  --nav-text-color: #ffffff;
+
+  --card-bg: rgba(30, 46, 77, 0.8);
+}
+
+#about,
+#projects,
+#skills,
+#experience,
+#education,
+#contact {
+  min-height: calc(100vh + 80px);
+  /* padding-top: 80px; */
+  margin-top: -80px;
 }
 
 @layer utilities {

@@ -1,0 +1,59 @@
+.education {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // Vertically center the content
+  align-items: center; // Horizontally center the content
+  padding: 2rem;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: var(
+    --background
+  ); // Assuming you have CSS variables set for themes
+  color: var(--text-color);
+
+  h1 {
+    text-align: center;
+    color: #0275d8;
+  }
+
+  .educationContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .educationCard {
+    background-color: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #0275d8;
+
+    h2 {
+      margin-top: 0;
+      color: #0275d8;
+    }
+
+    time {
+      font-style: italic;
+    }
+
+    .degree {
+      font-weight: bold;
+    }
+
+    .honors {
+      margin-top: 1rem;
+      background-color: #eef;
+      padding: 0.5rem;
+      border-radius: 5px;
+    }
+
+    ul {
+      list-style-type: circle;
+      margin-top: 0.5rem;
+      padding-left: 20px;
+    }
+  }
+}

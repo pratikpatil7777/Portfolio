@@ -1,0 +1,158 @@
+.header {
+  display: flex;
+  // justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--background);
+  opacity: 95%;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+}
+
+.navbar {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  // align-self: center;
+  gap: 10px;
+  z-index: 1000;
+  a {
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--nav-text-color); // Example hover color
+    }
+  }
+
+  .active {
+    color: var(--nav-text-color); // Example active color
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--nav-text-color);
+      // transform: scaleX(0);
+      // transition: transform 0.3s ease-in-out;
+      animation: underlineSlide 0.5s ease forwards;
+    }
+    // &:after {
+    //   content: "";
+    //   position: absolute;
+    //   bottom: -5px;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 2px;
+    //   background-color: #0070f3; // Example underline color
+    //   animation: underlineSlide 0.3s ease forwards;
+    // }
+  }
+  // Hide the navbar on mobile by default
+  @media (max-width: 768px) {
+    display: none;
+    flex-direction: column;
+  }
+
+  // When navbar is open, show it
+  &.show {
+    display: flex;
+  }
+}
+
+// .navbar a::before {
+//   content: "";
+//   position: absolute;
+//   background-color: var(--clr, rgb(64, 83, 142));
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   transform: translate(var(--x, 0), var(--y, 0)) scale(0);
+//   transform-origin: center;
+//   transition: transform 0.5s, background-color 0.3s;
+//   z-index: -1;
+// }
+
+// .navbar a:hover::before {
+//   transform: translate(var(--x, 0), var(--y, 0)) scale(1);
+// }
+
+@keyframes underlineSlide {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.navToggle {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+.toggleButton {
+  display: flex;
+  float: right;
+}
+.link {
+  padding: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.themeToggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.toggleButton {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  &:focus {
+    outline: none;
+  }
+
+  &.darkMode {
+    background-color: #333;
+  }
+
+  .toggleKnob {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 26px;
+    height: 26px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    transform: translateX(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  &.darkMode .toggleKnob {
+    transform: translateX(30px);
+    background-color: #ffeb3b;
+    box-shadow: 0 0 10px #ffeb3b;
+  }
+}

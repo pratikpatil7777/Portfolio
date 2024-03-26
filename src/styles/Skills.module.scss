@@ -1,0 +1,66 @@
+.skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // Vertically center the content
+  align-items: center; // Horizontally center the content
+  padding: 2rem;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: var(
+    --background
+  ); // Assuming you have CSS variables set for themes
+  color: var(--text-color);
+
+  h1 {
+    text-align: center;
+    color: #0275d8;
+  }
+
+  .skillsContainer {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(200px, 1fr)
+    ); // Allow more items per row
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .category {
+    background: var(--card-bg); // For glassmorphism effect
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      text-transform: capitalize;
+      margin-bottom: 0.5rem;
+      color: #0275d8;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 0.25rem 0.5rem;
+        margin: 0.25rem;
+        border-radius: 5px;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+        // transform: perspective(0px) rotateX(0deg);
+        transform: rotate(-2deg) translate(0px, -1px); // 3D effect
+        transition: transform 0.2s ease-in-out;
+
+        &:hover {
+          //   transform: perspective(200px) rotateX(20deg);
+          transform: rotate(0deg) translate(0px, 0px); // 3D effect on hover
+        }
+      }
+    }
+  }
+}
